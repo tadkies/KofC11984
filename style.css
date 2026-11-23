@@ -1,0 +1,191 @@
+/* ============================================================
+   Council #11984 website styles
+   Colors: change these few lines to adjust the whole site.
+   ============================================================ */
+:root {
+  --navy: #0b2a5b;
+  --navy-dark: #071c3d;
+  --gold: #c9a227;
+  --gold-light: #f3e3a6;
+  --red: #a6192e;
+  --ink: #1f2933;
+  --muted: #5b6673;
+  --paper: #fbfaf6;
+  --card: #ffffff;
+  --line: #e5e1d6;
+  --radius: 10px;
+  --max: 1200px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  font-size: 17px;
+}
+h1, h2, h3, .brand, nav, .btn, .eyebrow, table th {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+h1, h2, h3 { color: var(--navy); line-height: 1.25; }
+h2 { font-size: 1.7rem; margin-top: 0; }
+a { color: var(--navy); }
+a:hover { color: var(--red); }
+img { max-width: 100%; display: block; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+/* Placeholder text: anything wrapped in <span class="ph"> is info still needed */
+.ph {
+  background: #fff4c2;
+  border: 1px dashed #c9a227;
+  border-radius: 4px;
+  padding: 0 4px;
+  font-style: normal;
+  color: #6b5200;
+}
+
+/* ---------- Top bar & header ---------- */
+.topbar { background: var(--red); color: #fff; font: 0.85rem "Segoe UI", Arial, sans-serif; }
+.topbar .wrap { display: flex; justify-content: space-between; gap: 12px; padding: 6px 20px; flex-wrap: wrap; }
+.topbar a { color: #fff; }
+
+header.site {
+  background: var(--navy);
+  border-bottom: 4px solid var(--gold);
+  position: sticky; top: 0; z-index: 50;
+}
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+.brand:hover { color: #fff; }
+.mark {
+  /* Simple cross mark (NOT the official K of C emblem). An authorized emblem image can replace this. */
+  width: 46px; height: 46px; flex: 0 0 46px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: grid; place-items: center;
+  color: var(--navy); font-size: 28px; font-weight: 700;
+  box-shadow: inset 0 0 0 3px var(--navy), 0 0 0 2px var(--gold);
+}
+.brand-text { line-height: 1.15; }
+.brand-text strong { display: block; font-size: 1.02rem; letter-spacing: .2px; }
+.brand-text span { font-size: .8rem; color: var(--gold-light); }
+
+nav.main ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; flex-wrap: wrap; }
+nav.main a {
+  color: #fff; text-decoration: none; padding: 8px 10px; border-radius: 6px;
+  font-size: .92rem; font-weight: 600;
+}
+nav.main a:hover, nav.main a[aria-current="page"] { background: rgba(255,255,255,.12); color: var(--gold-light); }
+.menu-btn {
+  display: none; background: none; border: 2px solid var(--gold); color: #fff;
+  border-radius: 6px; padding: 6px 10px; font-size: 1rem; cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    linear-gradient(135deg, rgba(7,28,61,.96), rgba(11,42,91,.88)),
+    repeating-linear-gradient(45deg, #0b2a5b 0 12px, #0d3170 12px 24px);
+  color: #fff; text-align: center; padding: 72px 0 64px;
+}
+.hero h1 { color: #fff; font-size: clamp(1.8rem, 4.5vw, 3rem); margin: .2em 0; }
+.hero p.lead { font-size: 1.15rem; max-width: 720px; margin: 0 auto 26px; color: #e8ecf5; }
+.eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: .8rem; color: var(--gold); font-weight: 700; }
+.rule { width: 90px; height: 3px; background: var(--gold); margin: 18px auto; border: 0; }
+
+.page-head { background: var(--navy); color: #fff; padding: 44px 0 36px; text-align: center; border-bottom: 1px solid var(--navy-dark); }
+.page-head h1 { color: #fff; margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.page-head p { color: #dfe5f1; margin: 8px auto 0; max-width: 700px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 999px; text-decoration: none;
+  font-weight: 700; font-size: .95rem; margin: 4px; border: 2px solid transparent;
+}
+.btn-gold { background: var(--gold); color: var(--navy-dark); }
+.btn-gold:hover { background: #ddb73a; color: var(--navy-dark); }
+.btn-outline { border-color: #fff; color: #fff; }
+.btn-outline:hover { background: #fff; color: var(--navy); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--red); color: #fff; }
+
+/* ---------- Sections & cards ---------- */
+section { padding: 56px 0; }
+section.alt { background: #f2efe6; }
+.grid { display: grid; gap: 22px; }
+.g2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.card h3 { margin-top: 0; }
+.card.accent { border-top: 4px solid var(--gold); }
+.card.red { border-top: 4px solid var(--red); }
+.card a.more { font-family: "Segoe UI", Arial, sans-serif; font-weight: 700; font-size: .9rem; text-decoration: none; }
+.icon { font-size: 1.6rem; color: var(--red); }
+
+.meeting-strip { background: var(--gold); color: var(--navy-dark); padding: 26px 0; }
+.meeting-strip .grid { text-align: center; }
+.meeting-strip strong { display: block; font-family: "Segoe UI", Arial, sans-serif; font-size: 1.05rem; }
+
+.callout { border-left: 5px solid var(--red); background: #fff; padding: 16px 20px; border-radius: 0 var(--radius) var(--radius) 0; }
+.note { font-size: .9rem; color: var(--muted); }
+
+/* ---------- Tables (events) ---------- */
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--navy); color: #fff; font-size: .9rem; }
+tr:nth-child(even) td { background: #faf8f2; }
+
+/* ---------- Steps (join) ---------- */
+ol.steps { counter-reset: s; list-style: none; padding: 0; }
+ol.steps li { counter-increment: s; position: relative; padding: 4px 0 18px 58px; }
+ol.steps li::before {
+  content: counter(s); position: absolute; left: 0; top: 0;
+  width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: var(--gold);
+  display: grid; place-items: center; font: 700 1.1rem "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Gallery ---------- */
+.gallery { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.gallery figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.gallery img, .gallery .placeholder { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; cursor: zoom-in; }
+.gallery .placeholder {
+  display: grid; place-items: center; text-align: center; cursor: default;
+  background: repeating-linear-gradient(45deg, #eef1f7 0 10px, #e6eaf3 10px 20px);
+  color: var(--muted); font: .9rem "Segoe UI", Arial, sans-serif; padding: 10px;
+}
+.gallery figcaption { padding: 8px 12px; font-size: .9rem; color: var(--muted); }
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.88); display: none; place-items: center; z-index: 100; padding: 20px; }
+.lightbox.open { display: grid; }
+.lightbox img { max-height: 88vh; border-radius: 6px; }
+
+/* ---------- Footer ---------- */
+footer.site { background: var(--navy-dark); color: #cbd3e1; padding: 40px 0 24px; font-size: .92rem; }
+footer.site a { color: var(--gold-light); }
+footer.site h3 { color: #fff; font-size: 1rem; }
+footer.site .legal { border-top: 1px solid rgba(255,255,255,.12); margin-top: 24px; padding-top: 16px; font-size: .8rem; color: #8f9bb1; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 1100px) {
+  .menu-btn { display: block; }
+  nav.main { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--navy); border-bottom: 4px solid var(--gold); }
+  nav.main.open { display: block; }
+  nav.main ul { flex-direction: column; padding: 8px 12px 14px; }
+  nav.main a { display: block; padding: 12px; }
+  header.site .wrap { position: relative; }
+  .brand-text strong { font-size: .92rem; }
+  section { padding: 40px 0; }
+  .hero { padding: 52px 0 46px; }
+  th, td { padding: 10px; font-size: .92rem; }
+}
+
+/* Long email addresses wrap instead of overflowing on phones */
+.card, footer.site p, .page-head p { overflow-wrap: anywhere; }
+nav.main ul { flex-wrap: nowrap; }
+@media (max-width: 1100px) { nav.main ul { flex-wrap: wrap; } }
+@media (min-width: 900px) { .g3 { grid-template-columns: repeat(3, 1fr); } }
